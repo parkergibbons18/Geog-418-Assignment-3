@@ -113,6 +113,7 @@ data <- data.frame(Variable = c("Income", "French Language"),
 #Produce table
 kable(data, caption = paste0("Descriptive statistics for Windsor", 2016, " census variables"))
 ```
+![image](https://github.com/user-attachments/assets/978ce939-d966-4d0f-83e9-4c7ac8f700c9)
 
 The following section works towards creating two different thematic maps for each of chosen variables. The first line of code is responsible for specifying the spatial object that we are wanting to plot while the second line is the function that adds the polygon shape to our map defining the regions to be filled by the desired spatial object. Next are the specific characteristics unique to the map such as the title and classification style. In this scenario a “jenks” or natural breaks classification is used, which groups the data into classes that minimize variance within classes and maximizes variance between classes. At the same time we must select the number of classes we want this data to be grouped into, six in this case. Last thing left to do is remove the borders around the polygons by setting the transparency to zero, make it so any polygons with NA values are displayed as grey, and determine where we want the legend to be. We can then repeat these same lines of code for the french knowledge variable, making sure to change out the variables in the first three lines to ensure the map communicates the appropriate information.
 
