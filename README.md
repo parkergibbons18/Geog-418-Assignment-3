@@ -147,7 +147,7 @@ tmap_arrange(map_Income, map_French, ncol = 2, nrow = 1)
 ```
 ![image](https://github.com/user-attachments/assets/06ad3327-f753-4d32-ad0e-859a733c239e)
 
-Figure 1. 2016 Windsor census areas showing median total income (left) and percentage of respondants with knowledge of french (right). 
+Figure 1. 2016 Windsor census areas showing median total income (left) and percentage of respondants with french knowledge (right). 
 
 ## Neighbourhood matrix
 
@@ -348,6 +348,8 @@ map_LISA_French <- tm_shape(French_noNA) +
 tmap_arrange(map_LISA_Income, map_LISA_French, ncol = 2, nrow = 1)
 ```
 ![image](https://github.com/user-attachments/assets/00709252-03b1-46d1-a763-f588c8cca42c)
+
+Figure 4. 2016 Windsor census areas showing LISA z-scores for median total income (left) and percentage of respondants with french knowledge (right).
 
 As seen in the maps, the census districts have been divided up into three categories and assigned a class represented by a colour. Represented by grey are the census districts whose z score falls between -1.96 and 1.96 which would indicate that the results are not statistically significant and would fail to reject the null hypothesis. Represented by blue and red are the census districts whose z-score falls below and above the rejection region respectively. The red census districts are regions which see significant positive spatial autocorrelation, meaning high values are surrounded by other high values and low values are surrounded by other low values. The blue census districts are regions that experience significant negative spatial autocorrelation, meaning high values are surrounded by low values or vice versa, which can indicate outliers in the dataset. Although the maps serve as an excellent visualization tool, graphing the trends seen on the map can provide an additional layer of information.
 
