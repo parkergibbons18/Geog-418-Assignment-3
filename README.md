@@ -145,6 +145,7 @@ map_French <- tm_shape(French_noNA) + #change
 #Print maps side by side
 tmap_arrange(map_Income, map_French, ncol = 2, nrow = 1)
 ```
+![image](https://github.com/user-attachments/assets/06ad3327-f753-4d32-ad0e-859a733c239e)
 
 ## Neighbourhood matrix
 
@@ -198,8 +199,8 @@ IncomeBoth <- tm_shape(Income_noNA) + tm_borders(col='lightgrey') +
 
 #Print the three maps side by side 
 tmap_arrange(IncomeQueen, IncomeRook, IncomeBoth, ncol = 3, nrow = 1)
-
 ```
+![image](https://github.com/user-attachments/assets/3b898b4d-3c21-49dc-a721-0832b5eeabbb)
 
 The following section looks to create spatial weight matrices and extract a subset of the weights for further inspection. There are a number of spatial weights that can be used in spatial analysis with each focusing on different aspects of the spatial relationship of the study objects. The primary decision that has to be made in this section is the “style” of weight we want to use. In this instance we select a “W” style which refers to row-standardized weights. This results in the weight for each location being normalized so that the sum of the weights for all neighbours of a given location will sum to a value of 1 [ 5 ]. Doing this makes the weights comparable across different locations, ensuring that the influence of each location's neighbour is standardized.
 
@@ -217,8 +218,8 @@ French.lw <- nb2listw(French.nb, zero.policy = TRUE, style = "W")
 #Extracts the first 3 elements of income weight matrix and prints the subset
 subset_weights <- head(Income.lw[["weights"]])[c(1:3)]
 print(subset_weights)
-
 ```
+![image](https://github.com/user-attachments/assets/2cb95946-3f3c-4ab5-b639-c89a232c548b)
 
 
 ## Global Moran’s I
@@ -229,6 +230,7 @@ With the understanding of how to both choose and weigh our neighbourhoods, we ca
 $$
 I = \frac{\sum_{i=1}^n\sum_{j=1}^nW_{i,j}(x_i - \bar{x})(x_j - \bar{x})}{(\sum_{i=1}^n\sum_{j=1}^nW_{i,j})\sum_{i=1}^n(x_i - \bar{x})^2}
 $$
+![image](https://github.com/user-attachments/assets/55c7e3d8-d5b2-41ea-8872-00c47d12dac4)
 
 In the above formula, the spatial weight (Wij) captures the relationship between the two locations (i and j), while (xi - x̄) and (xj - x̄) represents the deviations of the values at those locations from the global mean which is represented by (x̄). The numerator displays the spatial covariance between the pairs of locations weighted by their spatial relationship [ 7 ]. The denominator is used to normalize the covariance by considering the global variance in the data which is expressed as the product of the sum of weights (the first set of brackets) and the variance (everything after the first set of brackets).
 
@@ -287,6 +289,7 @@ Local spatial autocorrelation looks to assess how similar values of a variable a
 $$
 I_i = \frac{x_i - \bar{x}}{S_i^2}\sum{_{j=1}^n}W_{i,j}(x_j - \bar{x})\space \space where \space \space S_i^2 = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1} 
 $$
+![image](https://github.com/user-attachments/assets/a783005c-bb2f-4bcd-9bc8-1b23a2a9142a)
 
 Thankfully, rather than having to manually enter the formula and calculations to obtain a local moran’s value, there is a function available to streamline this process. The localmoran( ) function is able to handle all the calculation work within R provided we are able to input the correct variables and weighting scheme for the desired scenario. Below is the code and steps to complete this with the income variable being calculated first and the french knowledge variable being calculated second.
 
@@ -346,6 +349,7 @@ map_LISA_French <- tm_shape(French_noNA) +
 #Plot maps in a 2 pane figure
 tmap_arrange(map_LISA_Income, map_LISA_French, ncol = 2, nrow = 1)
 ```
+![image](https://github.com/user-attachments/assets/00709252-03b1-46d1-a763-f588c8cca42c)
 
 As seen in the maps, the census districts have been divided up into three categories and assigned a class represented by a colour. Represented by grey are the census districts whose z score falls between -1.96 and 1.96 which would indicate that the results are not statistically significant and would fail to reject the null hypothesis. Represented by blue and red are the census districts whose z-score falls below and above the rejection region respectively. The red census districts are regions which see significant positive spatial autocorrelation, meaning high values are surrounded by other high values and low values are surrounded by other low values. The blue census districts are regions that experience significant negative spatial autocorrelation, meaning high values are surrounded by low values or vice versa, which can indicate outliers in the dataset. Although the maps serve as an excellent visualization tool, graphing the trends seen on the map can provide an additional layer of information.
 
@@ -354,6 +358,7 @@ As seen in the maps, the census districts have been divided up into three catego
 moran.plot(Income_noNA$`Median total income`, Income.lw, zero.policy=TRUE, spChk=NULL, labels=NULL, xlab="Median Total Income ($)", 
            ylab="Spatially Lagged Median Total Income ($)", quiet=NULL)
 ```
+![image](https://github.com/user-attachments/assets/4a96b235-7d7e-474e-b10c-201cf8e57140)
 
 
 ```{r MoransIScatter2, echo=TRUE, eval=TRUE, warning=FALSE, fig.cap= "Moran's I scatter plot for percentage of respondants with knowledge of french."}
@@ -361,6 +366,7 @@ moran.plot(Income_noNA$`Median total income`, Income.lw, zero.policy=TRUE, spChk
 moran.plot(French_noNA$PercFrench, French.lw, zero.policy=TRUE, spChk=NULL, labels=NULL, xlab="Respondants with knowledge of French (%)", 
            ylab="Spatially Lagged knowledge of French (%)", quiet=NULL)
 ```
+![image](https://github.com/user-attachments/assets/c5927754-9aed-4cec-8e62-de0e7152df1c)
 
 Although these plots appear rather intimidating at first glance, they are relatively simple to analyze in practice. The x-axis represents the actual median income values for each observation while the y-axis reflects the income values of neighboring observations. The solid diagonal line represents the best fit line through the observations with the upward trend indicating the presence of positive spatial autocorrelation. Points in the top right of the scatter plot represent locations in which the observed observation and its neighbors are well above the mean. Points in the bottom left indicate locations in which the observed observation and its neighbours are below the mean. Both of these outcomes on the plot represent positive spatial autocorrelation as regardless of if the observed observation and its neighbours are above or below the mean, they are still surrounded by similar values. You might also notice a number of the points on the plot being diamond shaped, these are points that were found to be statistically significant in the data.
 
