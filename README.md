@@ -146,7 +146,8 @@ map_French <- tm_shape(French_noNA) + #change
 tmap_arrange(map_Income, map_French, ncol = 2, nrow = 1)
 ```
 ![image](https://github.com/user-attachments/assets/06ad3327-f753-4d32-ad0e-859a733c239e)
-Figure 1. Windsor Total Median Income, 2016         Figure 2. Windsor Knowledge of French, 2016
+
+Figure 1. Windsor Total Median Income (left) and Windsor Knowledge of French (right), 2016
 
 ## Neighbourhood matrix
 
