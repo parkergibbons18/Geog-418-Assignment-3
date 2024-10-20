@@ -291,9 +291,6 @@ By subtracting the expected moran’s I value from the observed moran’s I valu
 
 Local spatial autocorrelation looks to assess how similar values of a variable are clustered or dispersed within a specific geographic area. This is in contrast to global spatial autocorrelation which considers the entire study region. Oftentimes it will use Local Indicators of Spatial Association (LISA) in order to identify significant spatial patterns with the goal of revealing hot spots of similar values as well as outliers such as when high values are surrounded by low values or vice versa [ 9 ]. For this example we will be completing a calculation for Local Moran’s I, which in many ways is similar to the Global Moran’s I discussed earlier, rather the arrangements in the calculation itself are different. 	
 
-$$
-I_i = \frac{x_i - \bar{x}}{S_i^2}\sum{_{j=1}^n}W_{i,j}(x_j - \bar{x})\space \space where \space \space S_i^2 = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1} 
-$$
 ![image](https://github.com/user-attachments/assets/a783005c-bb2f-4bcd-9bc8-1b23a2a9142a)
 
 Thankfully, rather than having to manually enter the formula and calculations to obtain a local moran’s value, there is a function available to streamline this process. The localmoran( ) function is able to handle all the calculation work within R provided we are able to input the correct variables and weighting scheme for the desired scenario. Below is the code and steps to complete this with the income variable being calculated first and the french knowledge variable being calculated second.
