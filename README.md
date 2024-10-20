@@ -360,6 +360,7 @@ moran.plot(Income_noNA$`Median total income`, Income.lw, zero.policy=TRUE, spChk
 ```
 ![image](https://github.com/user-attachments/assets/4a96b235-7d7e-474e-b10c-201cf8e57140)
 
+Figure 5. Moran's I scatter plot for median total income, Windsor 2016.
 
 ```{r MoransIScatter2, echo=TRUE, eval=TRUE, warning=FALSE, fig.cap= "Moran's I scatter plot for percentage of respondants with knowledge of french."}
 #Create Moran's I scatter plot for French
@@ -367,6 +368,8 @@ moran.plot(French_noNA$PercFrench, French.lw, zero.policy=TRUE, spChk=NULL, labe
            ylab="Spatially Lagged knowledge of French (%)", quiet=NULL)
 ```
 ![image](https://github.com/user-attachments/assets/c5927754-9aed-4cec-8e62-de0e7152df1c)
+
+Figure 6. Moran's I scatter plot for percentage of respondants with french knowledge, Windsor 2016.
 
 Although these plots appear rather intimidating at first glance, they are relatively simple to analyze in practice. The x-axis represents the actual median income values for each observation while the y-axis reflects the income values of neighboring observations. The solid diagonal line represents the best fit line through the observations with the upward trend indicating the presence of positive spatial autocorrelation. Points in the top right of the scatter plot represent locations in which the observed observation and its neighbors are well above the mean. Points in the bottom left indicate locations in which the observed observation and its neighbours are below the mean. Both of these outcomes on the plot represent positive spatial autocorrelation as regardless of if the observed observation and its neighbours are above or below the mean, they are still surrounded by similar values. You might also notice a number of the points on the plot being diamond shaped, these are points that were found to be statistically significant in the data.
 
