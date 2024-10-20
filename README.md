@@ -1,7 +1,7 @@
 ---
 title: "Spatial Autocorrelation Tutorial"
 author: "Parker Gibbons"
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+date: "2024/10/20"
 output: pdf_document
 #output: 
 #  bookdown::html_document2:
