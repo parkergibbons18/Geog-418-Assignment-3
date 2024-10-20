@@ -231,10 +231,6 @@ Figure 3. Weight matric for total median income varibale using row-standardized 
 
 With the understanding of how to both choose and weigh our neighbourhoods, we can move onto the calculation of a Global Moran’s I statistic. This statistic is a measure of spatial autocorrelation that is used to assess whether similar values are found clustering among each other across a data set. Values for a global moran’s I will range from -1 to 1 with a value closer to 1 indicating strong positive spatial autocorrelation (similar values are clustered) and a value close to -1 indicating negative spatial autocorrelation (dissimilar values are clustered). The contrary to these possibilities is a value of 0 which suggests no spatial autocorrelation or a random distribution of values [ 6 ].  The global moran’s I is considered a global statistic because it provides a single value that summarizes the overall spatial pattern across an entire dataset. This is in contrast to a local Moran’s I statistic which will assess spatial autocorrelation at an individual location. Think of a global statistic, such as global moran’s I, providing “the big picture”. While a local statistic provides location specific details and insights. The equation for the Global Moran’s I can be seen in the window below.
 
-
-$$
-I = \frac{\sum_{i=1}^n\sum_{j=1}^nW_{i,j}(x_i - \bar{x})(x_j - \bar{x})}{(\sum_{i=1}^n\sum_{j=1}^nW_{i,j})\sum_{i=1}^n(x_i - \bar{x})^2}
-$$
 ![image](https://github.com/user-attachments/assets/55c7e3d8-d5b2-41ea-8872-00c47d12dac4)
 
 In the above formula, the spatial weight (Wij) captures the relationship between the two locations (i and j), while (xi - x̄) and (xj - x̄) represents the deviations of the values at those locations from the global mean which is represented by (x̄). The numerator displays the spatial covariance between the pairs of locations weighted by their spatial relationship [ 7 ]. The denominator is used to normalize the covariance by considering the global variance in the data which is expressed as the product of the sum of weights (the first set of brackets) and the variance (everything after the first set of brackets).
