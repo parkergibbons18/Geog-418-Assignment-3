@@ -147,7 +147,7 @@ tmap_arrange(map_Income, map_French, ncol = 2, nrow = 1)
 ```
 ![image](https://github.com/user-attachments/assets/06ad3327-f753-4d32-ad0e-859a733c239e)
 
-Figure 1. Windsor Total Median Income (left) and Windsor Knowledge of French (right), 2016
+Figure 1. 2016 Windsor census areas showing median total income (left) and percentage of respondants with knowledge of french (right). 
 
 ## Neighbourhood matrix
 
