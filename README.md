@@ -204,7 +204,7 @@ tmap_arrange(IncomeQueen, IncomeRook, IncomeBoth, ncol = 3, nrow = 1)
 ```
 ![image](https://github.com/user-attachments/assets/3b898b4d-3c21-49dc-a721-0832b5eeabbb)
 
-Figure 2. 2016 Windsor census areas showing median total income neighbours using queens weight (left) rooks weight (middle) and combination of both (right)
+Figure 2. 2016 Windsor census areas showing median total income neighbours using queens weight (left) rooks weight (middle) and combination of both (right).
 
 The following section looks to create spatial weight matrices and extract a subset of the weights for further inspection. There are a number of spatial weights that can be used in spatial analysis with each focusing on different aspects of the spatial relationship of the study objects. The primary decision that has to be made in this section is the “style” of weight we want to use. In this instance we select a “W” style which refers to row-standardized weights. This results in the weight for each location being normalized so that the sum of the weights for all neighbours of a given location will sum to a value of 1 [ 5 ]. Doing this makes the weights comparable across different locations, ensuring that the influence of each location's neighbour is standardized.
 
@@ -225,6 +225,7 @@ print(subset_weights)
 ```
 ![image](https://github.com/user-attachments/assets/2cb95946-3f3c-4ab5-b639-c89a232c548b)
 
+Figure 3. Weight matric for total median income varibale using row-standardized weights.
 
 ## Global Moran’s I
 
