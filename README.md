@@ -225,7 +225,7 @@ print(subset_weights)
 ```
 ![image](https://github.com/user-attachments/assets/2cb95946-3f3c-4ab5-b639-c89a232c548b)
 
-Figure 3. Weight matric for total median income varibale using row-standardized weights.
+Figure 3. Weight matrix for total median income variable using row-standardized weights.
 
 ## Global Moran’s I
 
